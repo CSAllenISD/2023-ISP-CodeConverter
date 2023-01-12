@@ -17,7 +17,7 @@ Software Developement Engineer:
 KarthikPeravali
 neeraj-gogate
 VivekMaranganti
-evenye1202
+evanye1202
 janadaouk
 Zaenb
 
@@ -27,7 +27,7 @@ janadaouk
 Zaenb
 
 Release Engineer:
-evenye1202
+evanye1202
 
 Product Manager:
 neeraj-gogate
@@ -42,7 +42,7 @@ https://codermerlin.com/users/neeraj-gogate/Digital%20Portfolio/index.html
 
 https://codermerlin.com/users/vivek-maranganti/Digital%20Portfolio/index.html
 
-https://codermerlin.com/users/even-ye/Digital%20Portfolio/index.html
+https://codermerlin.com/users/evan-ye/Digital%20Portfolio/index.html
 
 https://codermerlin.com/users/jana-daouk/Digital%20Portfolio/index.html
 
