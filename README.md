@@ -9,7 +9,7 @@ VivekMaranganti\
 KarthikPeravali\
 evanye1202\
 janadaouk\
-Zaenb\
+Zaenb
 
 # Roles
 
@@ -25,7 +25,7 @@ evanye1202
 QA Engineers:\
 KarthikPeravali\
 janadaouk\
-Zaenb\
+Zaenb
 
 Software Developement Engineer:\
 KarthikPeravali\
@@ -33,7 +33,7 @@ neeraj-gogate\
 VivekMaranganti\
 evanye1202\
 janadaouk\
-Zaenb\
+Zaenb
 
 
 # Links to Digital Portfolio
