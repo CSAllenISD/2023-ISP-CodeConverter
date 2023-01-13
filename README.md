@@ -4,36 +4,36 @@ Our ISP is a web appliction that converts Swift code to C++ code. The primary fr
 
 # Usernames
 
-neeraj-gogate
-VivekMaranganti
-KarthikPeravali
-evanye1202
-janadaouk
-Zaenb
+neeraj-gogate/
+VivekMaranganti/
+KarthikPeravali/
+evanye1202/
+janadaouk/
+Zaenb/
 
 # Roles
 
-Product Manager:
+Product Manager:/
 neeraj-gogate
 
-Project Manager:
+Project Manager:/
 VivekMaranganti
 
-Release Manager:
+Release Manager:/
 evanye1202
 
-QA Engineers:
+QA Engineers:/
 KarthikPeravali\
 janadaouk\
 Zaenb
 
-Software Developement Engineer:
-KarthikPeravali
-neeraj-gogate
-VivekMaranganti
-evanye1202
-janadaouk
-Zaenb
+Software Developement Engineer:/
+KarthikPeravali/
+neeraj-gogate/
+VivekMaranganti/
+evanye1202/
+janadaouk/
+Zaenb/
 
 
 # Links to Digital Portfolio
