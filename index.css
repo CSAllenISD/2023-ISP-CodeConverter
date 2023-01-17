@@ -1,0 +1,21 @@
+:root{
+    font-size:20px;
+    font-family: 'Trebuchet MS';
+    --test-background-color: #252525;
+    --test-second-color: #FF0000;
+    color:white;
+}
+body,html{
+    margin: 0;
+}
+body{
+    background-color: var(--test-background-color);
+    padding: 0;
+    height: 100%;
+}
+html{
+    scroll-behavior: smooth;
+}
+    background-color: var(--test-second-color);
+    width: fit-content;
+}
