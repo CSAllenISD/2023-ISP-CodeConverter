@@ -16,6 +16,8 @@ body{
 html{
     scroll-behavior: smooth;
 }
+.testClass{
     background-color: var(--test-second-color);
+    height: 1rem;
     width: fit-content;
 }
