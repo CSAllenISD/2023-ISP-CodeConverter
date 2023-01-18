@@ -1,6 +1,6 @@
 # 2023-ISP-CodeConverter
 
-Our ISP is a web appliction that converts Swift code to C++ code. C++ is one of the fastest languages in terms of execution time, as it is relatively low level in the way it is written. However, many developers are moving away from it for newer languages, as they feature a high level of abstraction that allows programs to be written quickly. This abstraction, however, results in the languages being overall slower in execution time, with the execution time often increasing exponentially with complexity. Our application solves this conundrum, as developers are able to maintain the speed of their program with the programming efficiency that other languages bring
+Our ISP is a web appliction that converts Swift code to C++ code. C++ is one of the fastest languages in terms of execution time, as it is relatively low level in the way it is written. However, many developers are moving away from it for newer languages, as they feature a high level of abstraction that allows programs to be written quickly. This abstraction, however, results in the languages being overall slower in execution time, with the execution time often increasing exponentially with complexity. Our application solves this conundrum, as developers are able to maintain the speed of their program with the programming efficiency that other languages bring.
 
 ## Roles
 
