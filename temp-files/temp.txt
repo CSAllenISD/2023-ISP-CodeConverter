@@ -1,0 +1,7 @@
+func readInput() -> [String]{
+    var unsorted = [String]()
+    while let line = readLine() {
+        unsorted.append(line)
+    }
+    return unsorted
+}
