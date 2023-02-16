@@ -28,4 +28,3 @@ Our ISP is a web appliction that converts Swift code to C++ code. C++ is one of 
 
 #### Front End Developers
 * [Jana Daouk](https://github.com/janadaouk) | janadaouk - [Digitial Portfolio](https://codermerlin.com/users/jana-daouk/Digital%20Portfolio/index.html)
-* [Zaenb Al Ameri](https://github.com/Zaenb) | Zaenb - [Digitial Portfolio](https://codermerlin.com/users/zaenb-al-ameri/Digital%20Portfolio/index.html)
