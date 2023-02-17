@@ -64,17 +64,21 @@ class printStatements {
 };
 
 class Loops {
+// Class dedicated to the conversion of print statements from swift to c++
 
     public:
         std::vector<std::vector<std::string> > ifConversion(std::vector<std::vector<std::string> > testArr) {
             for (int i = 0; i < testArr.size(); i++) {
 
                 for (int j = 0; j < testArr[i].size(); j++) {
+
+                    // Looks for "if" in each index of the array to determine weather there is a print statement or not.
                     std::string myStr = testArr[i][j];
                     std::string startStr = myStr.substr(0, 2);
                     size_t found = startStr.find("if");
 
                     if (found != std::string::npos) {
+                        // The next 3 lines work to create a substring, containing all of the text after the word "if".
                         int startLength = 3;
                         int endLength = testArr[i][j].length() - startLength;
                         std::string ifContent = testArr[i][j].substr(startLength, endLength - 1);
@@ -82,6 +86,7 @@ class Loops {
                         std::ostringstream ifFormat;
                         ifFormat << "if" << " " << "(" << ifContent << ")" << " " << "{";
 
+                        // Causes the current index to contain the new, converted C++ code.
                         testArr[i][j] = ifFormat.str();
                     } else {
                         testArr[i][j] = testArr[i][j];
@@ -101,6 +106,9 @@ class Loops {
             return testArr;
         };
 };
+
+
+
 
 
 
