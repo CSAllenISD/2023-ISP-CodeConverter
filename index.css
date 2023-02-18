@@ -1,13 +1,33 @@
+:root{
+    font-size:20px;
+    font-family: 'Trebuchet MS';
+    --primary-background:#F3F5F7;
+    --primary-color: #4F4F5A;
+    --secondary-color: #C98CC0;
+    --tertiary-color: #0088a9;
+    --text-color:black;
+    --input-color:white;
+    
+}
+.darkMode {
+    --primary-background:#242f3a;
+    --primary-color:#0f0f4a;
+    --secondary-color:#8856d7;
+    --tertiary-color:#1b294e;
+    --text-color:white;
+    --input-color:black;
+}
+
 header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     padding: 30px 10%;
-    background-color: #4F4F5A;
+    background-color: var(--primary-color);
 }
 footer {
 
-    background-color: #4F4F5A;
+    background-color: var(--primary-color);
 
 }
 .inputBoxes {
@@ -29,15 +49,15 @@ footer {
 }
 .sectionHeader{
     width: 100%;
-    background-color: #4F4F5A;
-    color: #C98CC0;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     text-align: center;
     font-size: 2rem;
     border-radius: 15px 15px 0px 0px;
 }
 .convertButton {
     padding: 16px 42px;
-    background-color: #C98CC0;
+    background-color: var(--secondary-color);
     transition: all 0.3 ease 0s;
     cursor: pointer;
     border-radius: 40px;
@@ -47,21 +67,21 @@ footer {
 
 .convertButton input {
     border: none;
-    background-color: #C98CC0;
+    background-color: var(--secondary-color);
     transition: all 0.3 ease 0s;
     cursor: pointer;
 
 }
 
 .footer-container {
-    background-color: #4F4F5A;
+    background-color: var(--primary-color);
     padding: 4rem 0rem 2rem 0rem;
 }
 
 .footer {
     width: 80%;
     height: 40vh;
-    background-color: #4F4F5A;
+    background-color: var(--primary-color);
     color: white;
     display: flex;
     justify-content: space-between;
@@ -173,7 +193,16 @@ header    li, a, button {
     position:relative;
     width:125px;
     height:125px;
-    right:55vw;
+    right:45vw;
+}
+
+#selectLangButton {
+    cursor:pointer;
+}
+
+.inputPlace {
+    background-color:var(--input-color);
+    color:var(--text-color);
 }
 
 .nav_links {
@@ -190,12 +219,12 @@ header    li, a, button {
 }
 
 .nav_links li a:hover {
-    color: #0088a9;
+    color: var(--tertiary-color);
 }
 
 header   button {
     padding: 9px 25px;
-    background-color: rgba(0, 136, 169,1);
+    background-color: var(--tertiary-color);
     margin-left: 20px;
     border: none;
     border-radius: 50px;
@@ -204,12 +233,12 @@ header   button {
 }
 
 header button:hover {
-    background-color: rgba(0, 136, 169, 100);
+    background-color: var(--tertiary-color);
 }
 
 body {
     /* background-color: #FFFEEd;*/
-    background-color: #F3F5F7;
+    background-color: var(--primary-background);
 
 }
 

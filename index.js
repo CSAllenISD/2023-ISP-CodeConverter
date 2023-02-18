@@ -1,4 +1,4 @@
-var http = require('http');
+/*var http = require('http');
 var fs = require('fs');
 var {exec, spawn, execSync} = require('child_process');
 
@@ -10,4 +10,27 @@ function convert(){
     var newCode = execSync('./Back\ End/main < temp-files/temps.txt');
     document.getElementById('outputArea').value = newCode.toString();
     var command3 = ('rm temp-files/temps.txt');
+}
+
+*/
+darkModeOn = false;
+function toggleDarkMode() {
+    var element = document.body;
+    db = document.getElementById("db");
+    element.classList.toggle("darkMode");
+    if (darkModeOn == false) {
+	darkModeOn = true
+	db.innerHTML = "Light Mode"
+	
+
+    }
+    else if (darkModeOn == true) {
+	darkModeOn = false
+	db.innerHTML = "Dark Mode"
+	
+
+    }
+
+
+
 }
