@@ -14,6 +14,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height:40rem;
 }
 .input {
     flex-basis: auto;
@@ -35,11 +36,12 @@ footer {
     border-radius: 15px 15px 0px 0px;
 }
 .convertButton {
-    padding: 9px 25px;
+    padding: 16px 42px;
     background-color: #C98CC0;
     transition: all 0.3 ease 0s;
     cursor: pointer;
     border-radius: 40px;
+    border-width: 3px;
     width:fit-content;
 }
 
@@ -148,7 +150,7 @@ footer {
 header    li, a, button {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 22px;
     color: #ecf0f1;
     text-decoration: none;
 }
@@ -165,6 +167,13 @@ header    li, a, button {
     color: #C7C7E5;
     font-weight: 700;
     margin-right: auto;
+}
+
+.codeConverterLogo {
+    position:relative;
+    width:125px;
+    height:125px;
+    right:55vw;
 }
 
 .nav_links {
