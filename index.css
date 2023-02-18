@@ -14,15 +14,33 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 100px 5%;
 }
-
+.input {
+    flex-basis: auto;
+    width:fit-content;
+    align-items: center;
+}
+.middleSection{
+    flex-basis: auto;
+    max-width:30%;
+    height:100%;
+    align-items: center;
+}
+.sectionHeader{
+    width: 100%;
+    background-color: #4F4F5A;
+    color: #C98CC0;
+    text-align: center;
+    font-size: 2rem;
+    border-radius: 15px 15px 0px 0px;
+}
 .convertButton {
     padding: 9px 25px;
     background-color: #C98CC0;
     transition: all 0.3 ease 0s;
     cursor: pointer;    
     border-radius: 40px;
+    width:fit-content;
 }
 
 .convertButton input {
@@ -125,12 +143,6 @@ footer {
     .footer-email-form {
 	margin-top: 2rem;
     }
-}
-
-    
-.input {
-    flex-basis: auto;
-    
 }
 
 header    li, a, button {
