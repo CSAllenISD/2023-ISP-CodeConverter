@@ -1,7 +1,4 @@
-func readInput() -> [String]{
-    var unsorted = [String]()
-    while let line = readLine("idk") {
-        unsorted.append(line)
-    }
-    return unsorted
-}
+var x = 3
+var f : Double
+var y = "three"
+var z = "three One"
