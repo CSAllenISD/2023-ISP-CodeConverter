@@ -19,9 +19,11 @@ Our ISP is a web appliction that converts Swift code to C++ code. C++ is one of 
 * [Zaenb Al Ameri](https://github.com/Zaenb) | Zaenb - [Digitial Portfolio](https://codermerlin.com/users/zaenb-al-ameri/Digital%20Portfolio/index.html)
 
 ### Software Developement Engineers
+
+#### Back End Developers
 * [Neeraj Gogate](https://github.com/neeraj-gogate) | neeraj-gogate - [Digitial Portfolio](https://codermerlin.com/users/neeraj-gogate/Digital%20Portfolio/index.html)
 * [Vivek Maranganti](https://github.com/VivekMaranganti) | VivekMaranganti - [Digitial Portfolio](https://codermerlin.com/users/vivek-maranganti/Digital%20Portfolio/index.html)
-* [Evan Ye](https://github.com/evanye1202) | evanye1202 - [Digitial Portfolio](https://codermerlin.com/users/evan-ye/Digital%20Portfolio/index.html)
-* [Karthik Peravali](https://github.com/KarthikPeravali) | KarthikPeravali - [Digitial Portfolio](https://codermerlin.com/users/karthik-peravali/Digital%20Portfolio/index.html)
+
+#### Front End Developers
 * [Jana Daouk](https://github.com/janadaouk) | janadaouk - [Digitial Portfolio](https://codermerlin.com/users/jana-daouk/Digital%20Portfolio/index.html)
-* [Zaenb Al Ameri](https://github.com/Zaenb) | Zaenb - [Digitial Portfolio](https://codermerlin.com/users/zaenb-al-ameri/Digital%20Portfolio/index.html)
+* [Evan Ye](https://github.com/evanye1202) | evanye1202 - [Digitial Portfolio](https://codermerlin.com/users/evan-ye/Digital%20Portfolio/index.html)
