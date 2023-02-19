@@ -1,9 +1,36 @@
-const delay = ms => new Promise(res => setTimeout(res, ms));
+/*var http = require('http');
+var fs = require('fs');
+var {exec, spawn, execSync} = require('child_process');
 
-const test = async() => {
-    var testOne = document.getElementById("testOne");
-    var oldContent = testOne.innerHTML;
-    testOne.innerHTML = "Clicked!"
-    await delay(1000);
-    testOne.innerHTML = oldContent;
-};
+function convert(){
+    var swiftC = document.getElementById('inputArea').value;
+    var commands = execSync('touch temp-files/temps.txt');
+    var textCommand2 = 'cat ' + swiftC.toString() + ' > temp-files/temps.txt';
+    var command1 = execSync(textCommand2);
+    var newCode = execSync('./Back\ End/main < temp-files/temps.txt');
+    document.getElementById('outputArea').value = newCode.toString();
+    var command3 = ('rm temp-files/temps.txt');
+}
+
+*/
+darkModeOn = false;
+function toggleDarkMode() {
+    var element = document.body;
+    db = document.getElementById("db");
+    element.classList.toggle("darkMode");
+    if (darkModeOn == false) {
+	darkModeOn = true
+	db.innerHTML = "Light Mode"
+	
+
+    }
+    else if (darkModeOn == true) {
+	darkModeOn = false
+	db.innerHTML = "Dark Mode"
+	
+
+    }
+
+
+
+}
