@@ -33,24 +33,39 @@ std::vector<std::string>  remove_spaces(std::vector<std::string>  raw){
     }
     return newOne;
 }
-std::string checkKeyword(std::string line){
+
+int isVariableChange(std::string line, std::vector<Variable> vars){
+    for (int i = 0; i < vars.size(); i++){
+        if (line.rfind(vars[i].retName()) == 0) {
+            return i;
+        }
+    }
+    return -1;
+}
+std::string checkKeyword(std::string line, std::vector<Variable> &vars){
+    int varIndex = isVariableChange(line, vars);
+    if (varIndex != -1){
+        return vars[varIndex].operations(line);
+    }
     if (line.rfind("var", 0) == 0) {
         Variable tempVar = Variable(line, false);
         tempVar.defineTypes();
-        return tempVar.define();
+        std::string ret = tempVar.define();
+        vars.push_back(tempVar);
+        return ret;
     }
     return " ";
 }
 
 int main() {
+    std::vector<Variable> variables;
     std::vector<std::string> lines = remove_spaces(takeInput());
-    //print_vector(lines);
+    //print_vector(lines);  
     std::vector<std::string> finalCode;
     for (int i; i < lines.size(); i++){
-        std::string newl = checkKeyword(lines[i]);
+        std::string newl = checkKeyword(lines[i], variables);
         finalCode.push_back(newl);
     }
     print_vector(finalCode);
-    //std::vector<Variable> variables;
     return 0;
 }

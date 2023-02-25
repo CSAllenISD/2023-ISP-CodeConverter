@@ -51,3 +51,29 @@ std::string Variable::define(){
     //std::cout << "Name: " << name << std::endl;
     //std::cout << "Value: " << value << std::endl;
 }
+std::string Variable::retName(){
+    return name;
+}
+std::string Variable::operations(std::string l){
+    char operation = l[name.size()];
+    switch (operation){
+        case '=':
+            return op_line("=", l);
+        case '+':
+            return op_line("+=", l);
+        case '-':
+            return op_line("-=", l);
+        case '*':
+            return op_line("*=", l);
+        case '/':
+            return op_line("/=", l);
+        default:
+            return " ";
+    }
+}
+
+std::string Variable::op_line(std::string op, std::string l){
+    std::string val = l.substr(name.size() + op.size(), l.size());
+    std::string fin = name + " " + op + " " + val + ";";
+    return fin;
+}

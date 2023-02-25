@@ -1,4 +1,9 @@
-var x = 3
+var xt = 3
 var f : Double
 var y = "three"
 var z = "three One"
+
+xt += 1.0
+f -= 1
+y += "3t"
+x /= 3
