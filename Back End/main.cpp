@@ -3,6 +3,8 @@
 #include <vector>
 #include <map>
 #include "headers/Variable.h"
+#include "headers/Loops.h"
+#include "headers/Print.h"
 
 void print_vector(std::vector<std::string> vec){
     for (int i = 0; i < vec.size(); i++) {
@@ -53,6 +55,14 @@ std::string checkKeyword(std::string line, std::vector<Variable> &vars){
         std::string ret = tempVar.define();
         vars.push_back(tempVar);
         return ret;
+    }
+    if (line.rfind("if", 0) == 0) {
+        Loops tempLoops = Loops();
+        return tempLoops.ifConversion(line);
+    }
+    if (line.rfind("print",0) == 0){
+        Print print = Print();
+        return print.conversion(line);
     }
     return " ";
 }
