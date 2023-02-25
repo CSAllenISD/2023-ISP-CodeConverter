@@ -5,6 +5,7 @@
 #include "headers/Variable.h"
 #include "headers/Loops.h"
 #include "headers/Print.h"
+#include "headers/Value.h"
 
 void print_vector(std::vector<std::string> vec){
     for (int i = 0; i < vec.size(); i++) {
@@ -44,16 +45,17 @@ int isVariableChange(std::string line, std::vector<Variable> vars){
     }
     return -1;
 }
-std::string checkKeyword(std::string line, std::vector<Variable> &vars){
+std::string checkKeyword(std::string line, std::vector<Variable> &vars, std::map<std::string, std::string> &vars_n){
     int varIndex = isVariableChange(line, vars);
     if (varIndex != -1){
-        return vars[varIndex].operations(line);
+        return vars[varIndex].operations(line, vars_n);
     }
     if (line.rfind("var", 0) == 0) {
         Variable tempVar = Variable(line, false);
         tempVar.defineTypes();
-        std::string ret = tempVar.define();
+        std::string ret = tempVar.define(vars_n);
         vars.push_back(tempVar);
+        vars_n[tempVar.retName()] = tempVar.retType();
         return ret;
     }
     if (line.rfind("if", 0) == 0) {
@@ -69,11 +71,12 @@ std::string checkKeyword(std::string line, std::vector<Variable> &vars){
 
 int main() {
     std::vector<Variable> variables;
+    std::map<std::string, std::string> vars_n;
     std::vector<std::string> lines = remove_spaces(takeInput());
     //print_vector(lines);  
     std::vector<std::string> finalCode;
     for (int i; i < lines.size(); i++){
-        std::string newl = checkKeyword(lines[i], variables);
+        std::string newl = checkKeyword(lines[i], variables, vars_n);
         finalCode.push_back(newl);
     }
     print_vector(finalCode);

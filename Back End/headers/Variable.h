@@ -1,16 +1,19 @@
 #ifndef VARIABLE_H
 #define VARIABLE_H
 
+
+#include "Value.h"
 class Variable
 {
     public:
         Variable(std::string line, bool cons);
         void defineTypes();
-        std::string define();
+        std::string define(std::map<std::string, std::string> vars_n);
         void typeFinder(bool beq);
         std::string retName();
-        std::string operations(std::string new_l);
-        std::string op_line(std::string op, std::string l);
+        std::string retType();
+        std::string operations(std::string new_l, std::map<std::string, std::string> vars_n);
+        std::string op_line(std::string op, std::string l, std::map<std::string, std::string> vars_n);
     private:
         std::string line;
         bool cons;
@@ -18,6 +21,7 @@ class Variable
         std::string value;
         std::string type;
         std::map<std::string, std::string> types;
+        Value val;
 };
 
 #endif
