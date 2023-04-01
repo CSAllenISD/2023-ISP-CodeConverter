@@ -246,6 +246,32 @@ body {
     background-color: var(--primary-background);
 
 }
+.file-upload {
+    display: inline-flex;
+    align-items: center;
+    font-size: 15px;
+}
+.file-upload-input {
+    display: none;
+    
+}
+.file-upload-button {
+    -webkit-appearance: none;
+    background: grey;
+    border: 2px solid black;
+    border-radius: 4px;
+    outline: none;
+    padding: 0.5em 0.8em;
+    margin-right: 15px;
+    color: white;
+    font-size: 1em;
+    font-family: sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+.file-upload-button:active {
+    background: grey;
+}
 
 /*
 .inputBoxes {

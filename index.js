@@ -22,3 +22,20 @@ function toggleDarkMode() {
   darkModeOn = !darkModeOn;
   db.innerHTML = inner[darkModeOn];
 }
+
+function fileUpload() {
+    Array.prototype.forEach.call(document.querySelectorAll('.file-upload-button'), function (button) {
+	const hiddnenInput = button.parentElement.querySelector('.file-upload-input');
+	const label = button.parentElement.querySelector('.file-upload-label');
+	const defualtLabelTest = 'No file selected';
+
+	label.textContext = defaultLabelText;
+	label.title = defaultLabelText;
+
+	button.addEventListener('click', function() {
+	    hiddenInput.click();
+	});
+    };
+
+			       
+}
