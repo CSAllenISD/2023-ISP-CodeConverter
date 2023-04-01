@@ -3,7 +3,10 @@
 #include <vector>
 #include <map>
 #include "headers/Variable.h"
-
+#include "headers/Loops.h"
+#include "headers/Print.h"
+#include "headers/Value.h"
+#include "headers/Scope.h"
 void print_vector(std::vector<std::string> vec){
     for (int i = 0; i < vec.size(); i++) {
             std::cout << vec[i] << std::endl;
@@ -33,24 +36,67 @@ std::vector<std::string>  remove_spaces(std::vector<std::string>  raw){
     }
     return newOne;
 }
-std::string checkKeyword(std::string line){
+
+int isVariableChange(std::string line, std::vector<Variable> vars){
+    for (int i = 0; i < vars.size(); i++){
+        if (line.rfind(vars[i].retName()) == 0) {
+            return i;
+        }
+    }
+    return -1;
+}
+std::string checkKeyword(std::string line, std::vector<Variable> &vars, std::map<std::string, std::string> &vars_n, Scope &scope){
+    int varIndex = isVariableChange(line, vars);
+    //std::cout << scope.retScope();
+    std::string tabbing = scope.scopeTabbing();
+    tabbing = tabbing.substr(0,tabbing.length()-1);
+    if (varIndex != -1){
+        return vars[varIndex].operations(line, vars_n);
+    }
     if (line.rfind("var", 0) == 0) {
         Variable tempVar = Variable(line, false);
         tempVar.defineTypes();
-        return tempVar.define();
+        std::string ret = tempVar.define(vars_n);
+        vars.push_back(tempVar);
+        vars_n[tempVar.retName()] = tempVar.retType();
+        return tabbing + ret;
+    }
+    if (line.rfind("if", 0) == 0) {
+        Loops tempLoops = Loops();
+        scope.increaseScope();
+        return tabbing + tempLoops.ifConversion(line);
+    }
+    if (line.rfind("print",0) == 0){
+        Print print = Print();
+        return tabbing + print.conversion(line);
+    }
+    if (line.rfind("for",0) == 0){
+        Loops tempLoops = Loops();
+        scope.increaseScope();
+        return tabbing + tempLoops.forConversion(line);
+    }
+    if (line.rfind("repeat",0) == 0){
+        Loops tempLoops = Loops();
+        scope.increaseScope();
+        return tabbing + tempLoops.rptwhileConversion(line);
+    }
+    if (line.rfind("}",0) == 0){
+        scope.decreaseScope();
+        return scope.scopeTabbing() + "}";
     }
     return " ";
 }
 
 int main() {
+    std::vector<Variable> variables;
+    std::map<std::string, std::string> vars_n;
     std::vector<std::string> lines = remove_spaces(takeInput());
-    //print_vector(lines);
     std::vector<std::string> finalCode;
+    Scope scope = Scope();
     for (int i; i < lines.size(); i++){
-        std::string newl = checkKeyword(lines[i]);
+        std::string newl = checkKeyword(lines[i], variables, vars_n, scope);
         finalCode.push_back(newl);
     }
     print_vector(finalCode);
-    //std::vector<Variable> variables;
     return 0;
 }

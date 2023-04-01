@@ -15,22 +15,10 @@ function convert(){
 */
 darkModeOn = false;
 function toggleDarkMode() {
-    var element = document.body;
-    db = document.getElementById("db");
-    element.classList.toggle("darkMode");
-    if (darkModeOn == false) {
-	darkModeOn = true
-	db.innerHTML = "Light Mode"
-	
-
-    }
-    else if (darkModeOn == true) {
-	darkModeOn = false
-	db.innerHTML = "Dark Mode"
-	
-
-    }
-
-
-
+  inner = { true: "Dark Mode", false: "Light Mode" };
+  var element = document.body;
+  db = document.getElementById("db");
+  element.classList.toggle("darkMode");
+  darkModeOn = !darkModeOn;
+  db.innerHTML = inner[darkModeOn];
 }
