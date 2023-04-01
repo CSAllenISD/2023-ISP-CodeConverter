@@ -1,22 +1,3 @@
-var xt = 3
 var f : Double
-var y = 2
-var z = "three One"
-
-var fgp = z.count
-
-
-for node in children {
-
-for i in 0..<3 {
-    
-fgp = z.count();
-if x == 4{
-    print(\"quotesTest\")
-    print(noQuotesTest)
-    print(noQuotesTest)
-    print(noQuotesTest)
-}
-for line in lines{
-    
+for x in y{
 }
