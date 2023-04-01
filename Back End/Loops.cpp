@@ -21,7 +21,6 @@ std::string Loops::ifConversion(std::string line) {
 std::string Loops::forConversion(std::string line) {
     int startLength = 3;
     int inIndex = line.find("in");
-    std::cout << inIndex << std::endl;
     int endLength = line.length() - startLength;
     std::string varName = line.substr(startLength, inIndex - startLength);
     std::string range = line.substr(inIndex + 2, endLength - inIndex);

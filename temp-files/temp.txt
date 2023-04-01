@@ -1,3 +1,6 @@
 var f : Double
 for x in y{
 }
+func coolman(thing:String, cool: Int) -> String{
+
+}
