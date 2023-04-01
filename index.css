@@ -19,7 +19,7 @@
     --input-color:black;
 }
 
->>>>>>> 288fcc90e3d1e62fc852e24bb2b47da98cc99a66
+
 header {
     display: flex;
     justify-content: flex-end;
@@ -36,17 +36,17 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height:40rem;
+    height: 40rem;
 }
 .input {
     flex-basis: auto;
-    width:fit-content;
+    width: fit-content;
     align-items: center;
 }
 .middleSection{
     flex-basis: auto;
-    max-width:30%;
-    height:100%;
+    max-width: 30%;
+    height: 100%;
     align-items: center;
 }
 .sectionHeader{
@@ -64,7 +64,7 @@ footer {
     cursor: pointer;
     border-radius: 40px;
     border-width: 3px;
-    width:fit-content;
+    width: fit-content;
 }
 
 .convertButton input {
