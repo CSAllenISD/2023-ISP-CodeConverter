@@ -9,10 +9,11 @@ Value::Value(){
     int n;
 }
 std::vector<std::string> Value::convert(std::string line, std::map<std::string, std::string> vars_n){
-    auto it{vars_n.cbegin()};
     std::vector<std::string> var;
-    var[0] = line;
-    var[1] = "unknown";
+    var.push_back(line);
+    var.push_back("unknown");
+    
+    auto it{vars_n.cbegin()};
     for (auto const& [key, val] : vars_n){
         if (line.rfind(key,0) == 0){
             std::string swiftVarFunc = line.substr(key.size(),line.size());

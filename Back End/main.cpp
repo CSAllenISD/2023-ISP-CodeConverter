@@ -7,6 +7,7 @@
 #include "headers/Print.h"
 #include "headers/Value.h"
 #include "headers/Scope.h"
+#include "headers/Function.h"
 void print_vector(std::vector<std::string> vec){
     for (int i = 0; i < vec.size(); i++) {
             std::cout << vec[i] << std::endl;
@@ -79,6 +80,11 @@ std::string checkKeyword(std::string line, std::vector<Variable> &vars, std::map
         Loops tempLoops = Loops();
         scope.increaseScope();
         return tabbing + tempLoops.rptwhileConversion(line);
+    }
+    if (line.rfind("func",0) == 0){
+        Function tempFunction = Function();
+        scope.increaseScope();
+        return tabbing + tempFunction.define(line);
     }
     if (line.rfind("}",0) == 0){
         scope.decreaseScope();
