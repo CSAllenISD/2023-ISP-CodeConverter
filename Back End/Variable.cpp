@@ -2,8 +2,8 @@
 #include <string>
 #include <map>
 #include <vector>
-#include "headers/Variable.h"
 #include "headers/Value.h"
+#include "headers/Variable.h"
 
 Variable::Variable(std::string line, bool cons)
 {
@@ -42,8 +42,11 @@ std::string Variable::define(std::map<std::string, std::string> vars_n){
     }
     name = line.substr(3,eq-3);
     value = line.substr(eq+1,line.size());
-    value = val.convert(value, vars_n);
-    typeFinder(beq);
+    std::vector<std::string> result = val.convert(value, vars_n);
+    value = result[0];
+    if (result[0] == "unknown"){ 
+        typeFinder(beq);
+    }
     std::string newl = type + " " + name;
     if (value != "NULL"){
         newl += (" = " + value);
@@ -80,7 +83,7 @@ std::string Variable::operations(std::string l, std::map<std::string, std::strin
 
 std::string Variable::op_line(std::string op, std::string l, std::map<std::string, std::string> vars_n){
     std::string tempVal = l.substr(name.size() + op.size(), l.size());
-    std::string v = val.convert(line, vars_n);
+    std::string v = val.convert(line, vars_n)[0];
     std::string fin = name + " " + op + " " + v + ";";
     return fin;
 }

@@ -8,6 +8,7 @@ class Loops
         std::string ifConversion(std::string line);
         std::string forConversion(std::string line);
         std::string whileConversion(std::string line);
+        std::string rptwhileConversion(std::string line);
 };
 
 #endif
