@@ -1,0 +1,7 @@
+var xt = 3
+var y = 2
+var z = "three One"
+
+var fgp = z.count
+
+var f : Double

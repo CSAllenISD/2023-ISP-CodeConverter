@@ -44,7 +44,8 @@ std::string Variable::define(std::map<std::string, std::string> vars_n){
     value = line.substr(eq+1,line.size());
     std::vector<std::string> result = val.convert(value, vars_n);
     value = result[0];
-    if (result[0] == "unknown"){ 
+    type = result[1];
+    if (result[1] == "unknown"){ 
         typeFinder(beq);
     }
     std::string newl = type + " " + name;
@@ -53,9 +54,6 @@ std::string Variable::define(std::map<std::string, std::string> vars_n){
     }
     newl += ";";
     return newl;
-
-    //std::cout << "Name: " << name << std::endl;
-    //std::cout << "Value: " << value << std::endl;
 }
 std::string Variable::retName(){
     return name;

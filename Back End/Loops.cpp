@@ -23,19 +23,17 @@ std::string Loops::forConversion(std::string line) {
     int inIndex = line.find("in");
     int endLength = line.length() - startLength;
     std::string varName = line.substr(startLength, inIndex - startLength);
-    std::string range = line.substr(inIndex + 2, endLength - 1);
+    std::string range = line.substr(inIndex + 2, endLength - inIndex);
     std::string forContent;
-    if (range.find("..") == std::string::npos){
-        forContent = line.substr(inIndex+2, endLength - 1);
-    }
-    else {
+    forContent = "int " + varName + " : " + range;
+    if (range.find("..") != std::string::npos){
         std::string num1 = range.substr(0,range.find("."));
         std::string num2 = range.substr(range.find(".") + 3, range.length());
         std::string include = "<";
         if (range.substr(range.find(".") + 2, 1) == "."){
-            include += "<=";
+            include += "=";
         }
-        forContent = ("int" + varName + "=" + num1 + ";" + varName + include + "num2;" + varName + "++");
+        forContent = ("int " + varName + " = " + num1 + "; " + varName + " " + include + " " + num2 + "; " + varName + "++");
     }
     std::ostringstream forFormat;
     forFormat << "for" << " " << "(" << forContent << ")" << " " << "{";

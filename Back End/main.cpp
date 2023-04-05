@@ -48,12 +48,8 @@ int isVariableChange(std::string line, std::vector<Variable> vars){
 }
 std::string checkKeyword(std::string line, std::vector<Variable> &vars, std::map<std::string, std::string> &vars_n, Scope &scope){
     int varIndex = isVariableChange(line, vars);
-    //std::cout << scope.retScope();
     std::string tabbing = scope.scopeTabbing();
     tabbing = tabbing.substr(0,tabbing.length()-1);
-    if (varIndex != -1){
-        return vars[varIndex].operations(line, vars_n);
-    }
     if (line.rfind("var", 0) == 0) {
         Variable tempVar = Variable(line, false);
         tempVar.defineTypes();
@@ -88,7 +84,12 @@ std::string checkKeyword(std::string line, std::vector<Variable> &vars, std::map
     }
     if (line.rfind("}",0) == 0){
         scope.decreaseScope();
-        return scope.scopeTabbing() + "}";
+        tabbing = scope.scopeTabbing();
+        tabbing = tabbing.substr(0,tabbing.length()-1);
+        return tabbing + "}";
+    }
+    if (varIndex != -1){
+        return vars[varIndex].operations(line, vars_n);
     }
     return " ";
 }
