@@ -7,8 +7,10 @@ class Scope {
         void increaseScope();
         void decreaseScope();
         int retScope();
+        void changeScope(std::string name)
         std::string scopeTabbing();
     private:
         int scope;
+        std::vector<std::string> currentScope;
 };
 #endif
