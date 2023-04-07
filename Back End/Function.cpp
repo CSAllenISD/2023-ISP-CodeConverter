@@ -10,7 +10,9 @@ Function::Function(){
     defineTypes();
 }
 
-
+std::string Function::retName(){
+    return name;
+}
 void Function::defineTypes(){
     types["Boolean"] = "bool";
     types["Int"] = "int";
@@ -20,17 +22,18 @@ void Function::defineTypes(){
 std::string Function::define(std::string line){
     int nameStart = 4;
     int nameEnd = line.find("(");
-    std::string name = line.substr(nameStart,nameEnd - nameStart);
+    name = line.substr(nameStart,nameEnd - nameStart);
     int funcParEnd = line.find(")");
-    std::string parametersStr = line.substr(nameEnd, funcParEnd - nameEnd+1);
+    std::string parametersStr = line.substr(nameEnd+1, funcParEnd - nameEnd - 1);
     int colonIndex = (parametersStr.find(":") != std::string::npos) ? (parametersStr.find(":")) : 0;
     do{
         int commaIndex = (parametersStr.find(",") != std::string::npos) ? (parametersStr.find(",")) : parametersStr.length();
         if (colonIndex != 0){
-            std::string parameter = parametersStr.substr(1, colonIndex-1);
-            std::string swiftType = parametersStr.substr(colonIndex + 1, commaIndex - colonIndex -2);
+            std::string parameter = parametersStr.substr(0, colonIndex);
+            std::string swiftType = parametersStr.substr(colonIndex + 1, commaIndex - colonIndex - 1);
             std::string type = types[swiftType];
             parameters[parameter] = type;
+            paramArr.push_back(parameter);
             parametersStr = (commaIndex < parametersStr.length()) ? parametersStr.substr(commaIndex + 1): " ";
             colonIndex = (parametersStr.find(":") != std::string::npos) ? (parametersStr.find(":")) : 0;
         }
@@ -43,9 +46,8 @@ std::string Function::define(std::string line){
     }
     std::ostringstream finalLine;
     finalLine << returnType << " " << name << "(";
-    auto it{parameters.cbegin()};
-    for (auto const& [param, type] : parameters){
-        finalLine << type << " " << param << ", ";
+    for (int i=0; i < paramArr.size(); i++){
+        finalLine << parameters[paramArr[i]] << " " << paramArr[i] << ", ";
     }
     std::string tempS = finalLine.str();
     //std::cout << tempS.find_last_of(",") << tempS.length() << std::endl;
@@ -55,4 +57,28 @@ std::string Function::define(std::string line){
     //std::cout << tempS << "s" <<  std::endl;
     tempS += ("){");
     return tempS;
+}
+std::string Function::call(std::string line){
+    std::vector<std::string> args;
+    std::string argString = line.substr(name.length() + 1, line.length() - name.length() - 1);
+    int colonIndex = (argString.find(":") != std::string::npos) ? (argString.find(":")) : 0;
+    do {
+        int commaIndex = (argString.find(",") != std::string::npos) ? (argString.find(",")) : argString.length();
+        if (colonIndex != 0){
+            std::string parameter = argString.substr(0, colonIndex);
+            std::string argument = argString.substr(colonIndex + 1, commaIndex - colonIndex - 1);
+            args.push_back(argument);
+            argString = (commaIndex < argString.length()) ? argString.substr(commaIndex + 1): " ";
+            colonIndex = (argString.find(":") != std::string::npos) ? (argString.find(":")) : 0; 
+        }
+    } while (colonIndex != 0);
+    std::string ret = name + "(";
+    for (int i = 0; i < args.size(); i++){
+        ret += args[i] + ", ";
+    }
+    if (args.size() != 0) {
+        ret = ret.substr(0, ret.length() - 2); 
+    }
+    ret += (");");
+    return ret;
 }

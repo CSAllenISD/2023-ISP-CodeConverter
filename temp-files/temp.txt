@@ -4,3 +4,5 @@ for x in y{
 func coolman(thing:String, cool: Int) -> String{
 
 }
+
+coolman(thing: "hi", cool: 3)

@@ -46,8 +46,17 @@ int isVariableChange(std::string line, std::vector<Variable> vars){
     }
     return -1;
 }
-std::string checkKeyword(std::string line, std::vector<Variable> &vars, std::map<std::string, std::string> &vars_n, Scope &scope){
+int isFuncCall(std::string line, std::vector<Function> funcs){
+    for (int i = 0; i < funcs.size(); i++){
+        if (line.rfind(funcs[i].retName()) == 0) {
+            return i;
+        }
+    }
+    return -1;
+}
+std::string checkKeyword(std::string line, std::vector<Variable> &vars, std::map<std::string, std::string> &vars_n, std::vector<Function> &funcs, Scope &scope){
     int varIndex = isVariableChange(line, vars);
+    int funcIndex = isFuncCall(line, funcs);
     std::string tabbing = scope.scopeTabbing();
     tabbing = tabbing.substr(0,tabbing.length()-1);
     if (line.rfind("var", 0) == 0) {
@@ -79,6 +88,7 @@ std::string checkKeyword(std::string line, std::vector<Variable> &vars, std::map
     }
     if (line.rfind("func",0) == 0){
         Function tempFunction = Function();
+        funcs.push_back(tempFunction);
         scope.increaseScope();
         return tabbing + tempFunction.define(line);
     }
@@ -91,17 +101,21 @@ std::string checkKeyword(std::string line, std::vector<Variable> &vars, std::map
     if (varIndex != -1){
         return vars[varIndex].operations(line, vars_n);
     }
+    if (funcIndex != -1){
+        return funcs[funcIndex].call(line);
+    }
     return " ";
 }
 
 int main() {
     std::vector<Variable> variables;
     std::map<std::string, std::string> vars_n;
+    std::vector<Function> functions;
     std::vector<std::string> lines = remove_spaces(takeInput());
     std::vector<std::string> finalCode;
     Scope scope = Scope();
     for (int i; i < lines.size(); i++){
-        std::string newl = checkKeyword(lines[i], variables, vars_n, scope);
+        std::string newl = checkKeyword(lines[i], variables, vars_n, functions, scope);
         finalCode.push_back(newl);
     }
     print_vector(finalCode);
