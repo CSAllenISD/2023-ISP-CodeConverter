@@ -1,4 +1,8 @@
-var x = 3
 var f : Double
-var y = "three"
-var z = "three One"
+for x in y{
+}
+func coolman(thing:String, cool: Int) -> String{
+
+}
+
+coolman(thing: "hi", cool: 3)
