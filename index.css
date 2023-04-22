@@ -7,14 +7,20 @@
   --tertiary-color: #ec7787;
   --text-color: #2a363b;
   --input-color: white;
+  --textarea-color: rgb(244, 242, 242);
 }
 .darkMode {
-  --primary-background: #877a7a;
+  --primary-background: #6a6a6a;
   --primary-color: #434355;
-  --secondary-color: #6d2929;
-  --tertiary-color: #71272c;
+  --secondary-color: #622d6c;
+  --tertiary-color: #622d6c;
   --text-color: white;
   --input-color: black;
+  --textarea-color: rgb(211, 210, 210);
+}
+textarea {
+  background-color:var(--textarea-color);
+
 }
 form {
   display: flex;
