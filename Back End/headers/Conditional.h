@@ -6,7 +6,8 @@ class Conditional
     public:
         Conditional();
         void defineOperators();
-        std::string make(std::line)
+        std::string make(std::string line);
+        int checkConditional(std::string line);
     private:
         std::vector<std::string> operators;
 };

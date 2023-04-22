@@ -8,6 +8,7 @@ class Function
         std::string retName();
         std::string define(std::string line);
         std::string call(std::string line);
+        void printParams();
         void defineTypes();
     private:
         std::vector<std::string> paramArr;

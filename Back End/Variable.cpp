@@ -33,7 +33,7 @@ void Variable::typeFinder(bool beq){
     }
     type = "double";
 }
-std::string Variable::define(std::map<std::string, std::string> vars_n){
+std::string Variable::define(std::map<std::string, std::string> vars_n, std::map<std::string, bool> libs){
     bool beq = true;
     int eq = line.find("=");
     if (eq == -1){
@@ -47,6 +47,9 @@ std::string Variable::define(std::map<std::string, std::string> vars_n){
     type = result[1];
     if (result[1] == "unknown"){ 
         typeFinder(beq);
+    }
+    if (result[2] != "unknown"){
+        libs[result[2]] = true;
     }
     std::string newl = type + " " + name;
     if (value != "NULL"){

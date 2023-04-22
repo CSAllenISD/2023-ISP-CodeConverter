@@ -1,0 +1,1 @@
+g++ -std=c++17 -O3 -o main main.cpp Value.cpp Variable.cpp Print.cpp Loops.cpp Scope.cpp Function.cpp Conditional.cpp Libraries.cpp

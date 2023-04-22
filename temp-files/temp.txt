@@ -1,8 +1,13 @@
 var f : Double
 for x in y{
 }
+
+//helllo 
+//dsjsdds
 func coolman(thing:String, cool: Int) -> String{
+
+
 
 }
 
-coolman(thing: "hi", cool: 3)
+coolman(thing:"hi")

@@ -7,9 +7,15 @@
 #include "headers/Function.h"
 
 Function::Function(){
+    std::string name = "test";
     defineTypes();
 }
-
+void Function::printParams() {
+    auto it{parameters.cbegin()};
+    for (auto const& [key, val] : parameters){
+        std::cout << key << " : " << val << std::endl;
+    }
+}
 std::string Function::retName(){
     return name;
 }
@@ -50,17 +56,15 @@ std::string Function::define(std::string line){
         finalLine << parameters[paramArr[i]] << " " << paramArr[i] << ", ";
     }
     std::string tempS = finalLine.str();
-    //std::cout << tempS.find_last_of(",") << tempS.length() << std::endl;
     if (tempS.find_last_of(",") == tempS.length() - 2){
         tempS = tempS.substr(0, tempS.length() - 2);
     }
-    //std::cout << tempS << "s" <<  std::endl;
-    tempS += ("){");
+    tempS += (") {");
     return tempS;
 }
 std::string Function::call(std::string line){
     std::vector<std::string> args;
-    std::string argString = line.substr(name.length() + 1, line.length() - name.length() - 1);
+    std::string argString = line.substr(name.length() + 1, line.length() - name.length() - 2);
     int colonIndex = (argString.find(":") != std::string::npos) ? (argString.find(":")) : 0;
     do {
         int commaIndex = (argString.find(",") != std::string::npos) ? (argString.find(",")) : argString.length();
