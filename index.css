@@ -37,6 +37,19 @@ footer {
   height: 30rem;
   align-items: center;
 }
+#aboutTitle {
+  text-align: center;
+  margin-top: 20%;
+}
+#slogan {
+  margin-top: 22%;
+  text-align: center;
+}
+#aboutParagraph {
+  text-align: center;
+  margin-top: 10%;
+
+}
 .input {
   display: flex;
   flex-basis: auto;
