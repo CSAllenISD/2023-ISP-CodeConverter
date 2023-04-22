@@ -8,7 +8,7 @@ class Variable
     public:
         Variable(std::string line, bool cons);
         void defineTypes();
-        std::string define(std::map<std::string, std::string> vars_n);
+        std::string define(std::map<std::string, std::string> vars_n, std::map<std::string, bool> libs);
         void typeFinder(bool beq);
         std::string retName();
         std::string retType();

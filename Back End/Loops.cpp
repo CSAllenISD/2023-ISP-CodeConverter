@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include "headers/Conditional.h"
 #include "headers/Loops.h"
 
 Loops::Loops(){
@@ -11,6 +12,7 @@ std::string Loops::ifConversion(std::string line) {
     int startLength = 2;
     int endLength = line.length() - startLength;
     std::string ifContent = line.substr(startLength, endLength - 1);
+    //ifContent = con.make(ifContent);
     std::ostringstream ifFormat;
     ifFormat << "if" << " " << "(" << ifContent << ")" << " " << "{";
     // Causes the current index to contain the new, converted C++ code.
@@ -42,7 +44,14 @@ std::string Loops::forConversion(std::string line) {
 }
 
 std::string Loops::whileConversion(std::string line) {
-    return line;
+    int startLength = 5;
+    int endLength = line.length() - startLength;
+    std::string whileContent = line.substr(startLength, endLength - 1);
+    //ifContent = con.make(ifContent);
+    std::ostringstream whileFormat;
+    whileFormat << "while" << " " << "(" << whileContent << ")" << " " << "{";
+    // Causes the current index to contain the new, converted C++ code.
+    return whileFormat.str();
 }
 
 std::string Loops::rptwhileConversion(std::string line) {

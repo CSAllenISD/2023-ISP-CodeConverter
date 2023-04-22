@@ -10,28 +10,34 @@
   <body>
 
     <header>
-      <img class="codeConverterLogo" src="logo.png">
+      <img class="codeConverterLogo" src="logo.png" alt="">
       
       <nav>
 	<ul class="nav_links">
 	  <li> <a href="index.html" >  Home </a> </li>
 	  <li> <a href="help.html" > Help </a></li>
 	  <li> <a href="about.html" > About </a> </li>
-	  <li> <button onclick="toggleDarkMode()" id="db"> Dark Mode </button> </li>
+	<!---  <li> <button onclick="toggleDarkMode()" id="db"> Dark Mode </button> </li> -->
 	</ul>
       </nav>
-      <a class="contactButton" href="contact.html"> <button> Contact </button> </a>
+    <!--  <a class="contactButton" href="contact.html">  <button> Contact </button> </a> -->
+    <button onclick="toggleDarkMode()" id="db"> Dark Mode </button>
     </header>
 
-<div class="inputBoxes" >
+    <div class="inputBoxes" >
 
   <div class="input" >
-    <form action-"" method=""  placeholder="Enter your text here!"> Enter Swift Here:
+    <form action="" method=""  placeholder="Enter your text here!"> Enter Swift Here:
       <div class="file-upload">
-	<input class="file-upload-input" type="file" name="myFile" id="myFile">
+	<!--<input class="file-upload-input" type="file" name="myFile" id="myFile">
 	<button class="file-upload-button" type="button">Choose File(s)</button>
 	<span class="file-upload-label"></span>
-	<button onclick="fileUpload()" id="db"> Choose File</button>
+	<button onclick="fileUpload()" id="db"> Choo000se File</button>
+  -->
+  <form action="/upload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="Upload">
+  </form>
       </div>
       <textarea rows="30" cols="65"> </textarea>
   </div>
@@ -46,13 +52,13 @@
 
 
     <div class="input">
-      <form action-"" method="">
+      <form action="" method="">
 	C++ Appears Here!
 	<textarea rows="30" cols="65"> </textarea> </br>
     </div>
  
-  <div class="input" >  
-
+ 
+</div>
   
 
 <div class="footer-container">
@@ -73,4 +79,3 @@
 
      </body>
 </html>  
-
