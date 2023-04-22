@@ -29,10 +29,15 @@
   <div class="input" >
     <form action="" method=""  placeholder="Enter your text here!"> Enter Swift Here:
       <div class="file-upload">
-	<input class="file-upload-input" type="file" name="myFile" id="myFile">
+	<!--<input class="file-upload-input" type="file" name="myFile" id="myFile">
 	<button class="file-upload-button" type="button">Choose File(s)</button>
 	<span class="file-upload-label"></span>
-	<button onclick="fileUpload()" id="db"> Choose File</button>
+	<button onclick="fileUpload()" id="db"> Choo000se File</button>
+  -->
+  <form action="/upload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="Upload">
+  </form>
       </div>
       <textarea rows="30" cols="65"> </textarea>
   </div>

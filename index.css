@@ -269,6 +269,7 @@ body {
   display: inline-flex;
   align-items: center;
   font-size: 20px;
+  
 }
 .file-upload-input {
   display: none;
@@ -281,7 +282,7 @@ body {
   outline: none;
   padding: 0.5em 0.8em;
   margin: 5px;
-  color: white;
+  color: rgb(232, 33, 33);
   font-size: 1em;
   font-family: sans-serif;
   font-weight: bold;
