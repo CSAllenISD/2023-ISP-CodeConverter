@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include <algorithm>
 
 // Creating a Mock Input
 std::vector<std::vector<std::string> > mockInput
@@ -11,7 +12,9 @@ std::vector<std::vector<std::string> > mockInput
     {"print(multipleOnOneLineTest)", "print(multipleOnOneLineTest)"},
     {"not a print test"},
     {"if testVar1 = testVar2 {"},
-    {"while testVar1 = testVar2 {"}
+    {"while testVar1 = testVar2 {"},
+    {"var apple = [apple, bannana]"},
+    {"myArr[2] = myArr[3]"}
 };
 
 // Function to print the indexes of a 2d array
@@ -134,17 +137,73 @@ public:
   };
 };
 
+class Array {
 
+public:  
+  
+  std::vector<std::vector<std::string> > declarationConversion(std::vector<std::vector<std::string> > testArr) {
+    for (int i = 0; i < testArr.size(); i++) {
+
+      for (int j = 0; j < testArr[i].size(); j++) {
+	std::string myStr = testArr[i][j];
+	size_t found = myStr.find("[");
+	size_t found2 = myStr.find("var");
+	size_t found3 = myStr.find("let");
+
+	if (found != std::string::npos) {
+	  if (found2 != std::string::npos || found3 != std::string::npos) {
+	    myStr.erase(0, 3);
+	    std::replace( myStr.begin(), myStr.end(), '[', '{');
+	    std::replace( myStr.begin(), myStr.end(), ']', '}');
+	    std::ostringstream arrayFormat;
+	    arrayFormat << "std::vector<auto>" << myStr;
+	    testArr[i][j] = arrayFormat.str();
+	  }
+	}else{
+	  testArr[i][j] = testArr[i][j];
+	};
+      };
+    };
+    return testArr;
+  };
+
+  std::vector<std::vector<std::string> > arrConversion(std::vector<std::vector<std::string> > testArr) {
+    for (int i = 0; i < testArr.size(); i++) {
+
+      for (int j = 0; j < testArr[i].size(); j++) {
+	std::string myStr = testArr[i][j];
+	size_t found = myStr.find("[");
+
+	if (found != std::string::npos) {
+	  std::replace( myStr.begin(), myStr.end(), '[', '{');
+	  std::replace( myStr.begin(), myStr.end(), ']', '}');
+	  std::ostringstream arrayFormat;
+	  arrayFormat << myStr;
+	  testArr[i][j] = arrayFormat.str();
+	
+	} else {
+	  testArr[i][j] = testArr[i][j];
+	};
+      };
+    };
+    return testArr;
+  };
+
+};
 
 
 
 
 printStatements print = printStatements();
 Loops loops = Loops();
+Array array = Array();
 
 int main() {
   std::vector<std::vector<std::string> > printCheck = print.Conversion(mockInput);
   std::vector<std::vector<std::string> > ifCheck = loops.ifConversion(printCheck);
   std::vector<std::vector<std::string> > whileCheck = loops.whileConversion(ifCheck);
-  printVector(whileCheck);
+  std::vector<std::vector<std::string> > arrayDecCheck = array.declarationConversion(whileCheck);
+  std::vector<std::vector<std::string> > arrayCheck = array.arrConversion(arrayDecCheck);
+  
+  printVector(arrayCheck);
 };
