@@ -7,12 +7,17 @@ class Scope {
         void increaseScope();
         void decreaseScope();
         int retScope();
-        void changeScope(std::string name);
+        std::string scopeName();
+        void changeScope(std::string func);
         void addScope(std::string name);
         void removeScope();
         std::string scopeTabbing();
     private:
         int scope;
         std::vector<std::string> currentScope;
+        std::string currFunc;
+        int currFuncLevel;
+        std::vector<std::string> prevScope;
+        std::vector<int> prevScopeLevels;
 };
 #endif

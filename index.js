@@ -11,9 +11,10 @@ function convert(){
     document.getElementById('outputArea').value = newCode.toString();
     var command3 = ('rm temp-files/temps.txt');
 }
-
+c
 */
 darkModeOn = false;
+const spawner = require('child_process').spawn;
 function toggleDarkMode() {
   inner = { true: "Dark Mode", false: "Light Mode" };
   var element = document.body;
@@ -56,4 +57,11 @@ window.onclick = function(event) {
 	    }
 	}
     }
+}
+function convert(text) {
+    const swiftC = document.getElementById('inputArea').value;
+    const pythonProcess = spawner('python', ['./index.py', JSON.stringify(swiftC)]);
+    pythonProcess.stdout.on('data', (data) => {
+        console.log(data.toString());
+    });
 }
