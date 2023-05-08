@@ -1,5 +1,5 @@
-/*var http = require('http');
-var fs = require('fs');
+//var http = require('http');
+//var fs = require('fs');
 var {exec, spawn, execSync} = require('child_process');
 
 function convert(){
@@ -10,9 +10,8 @@ function convert(){
     var newCode = execSync('./Back\ End/main < temp-files/temps.txt');
     document.getElementById('outputArea').value = newCode.toString();
     var command3 = ('rm temp-files/temps.txt');
+    console.log("Worked!")
 }
-c
-*/
 darkModeOn = false;
 const spawner = require('child_process').spawn;
 function toggleDarkMode() {
@@ -24,6 +23,17 @@ function toggleDarkMode() {
   db.innerHTML = inner[darkModeOn];
 }
 
+const express = require("express");
+const app = express();
+app.use(express.static("public"));
+
+app.get('/', (req, res) => {
+  res.sendFile('public/index.html');
+})
+
+app.listen(3000, function() {
+  console.log("Running on port 3000.");
+});
 function fileUpload() {
     Array.prototype.forEach.call(document.querySelectorAll('.file-upload-button'), function (button) {
 	const hiddnenInput = button.parentElement.querySelector('.file-upload-input');
@@ -44,7 +54,7 @@ function fileUpload() {
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
-
+/*
 
 window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
@@ -58,6 +68,8 @@ window.onclick = function(event) {
 	}
     }
 }
+*/
+/*
 function convert(text) {
     const swiftC = document.getElementById('inputArea').value;
     const pythonProcess = spawner('python', ['./index.py', JSON.stringify(swiftC)]);
@@ -65,3 +77,6 @@ function convert(text) {
         console.log(data.toString());
     });
 }
+
+var server
+*/

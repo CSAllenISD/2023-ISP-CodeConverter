@@ -3,6 +3,7 @@
 #include <map>
 #include <vector>
 #include "headers/Value.h"
+#include "headers/Function.h"
 #include "headers/Variable.h"
 
 Variable::Variable(std::string line, bool cons)
@@ -33,7 +34,7 @@ void Variable::typeFinder(bool beq){
     }
     type = "double";
 }
-std::string Variable::define(std::map<std::string, std::string> vars_n, std::map<std::string, bool> libs){
+std::string Variable::define(std::map<std::string, std::string> vars_n, std::map<std::string, bool> libs, std::map<std::string, Function> funcs){
     bool beq = true;
     int eq = line.find("=");
     if (eq == -1){
@@ -42,7 +43,7 @@ std::string Variable::define(std::map<std::string, std::string> vars_n, std::map
     }
     name = line.substr(3,eq-3);
     value = line.substr(eq+1,line.size());
-    std::vector<std::string> result = val.convert(value, vars_n);
+    std::vector<std::string> result = val.convert(value, vars_n, funcs);
     value = result[0];
     type = result[1];
     if (result[1] == "unknown"){ 
@@ -64,27 +65,27 @@ std::string Variable::retName(){
 std::string Variable::retType(){
     return type;
 }
-std::string Variable::operations(std::string l, std::map<std::string, std::string> vars_n){
+std::string Variable::operations(std::string l, std::map<std::string, std::string> vars_n, std::map<std::string, Function> funcs){
     char operation = l[name.size()];
     switch (operation){
         case '=':
-            return op_line("=",l,vars_n);
+            return op_line("=",l,vars_n, funcs);
         case '+':
-            return op_line("+=",l,vars_n);
+            return op_line("+=",l,vars_n, funcs);
         case '-':
-            return op_line("-=",l,vars_n);
+            return op_line("-=",l,vars_n, funcs);
         case '*':
-            return op_line("*=",l,vars_n);
+            return op_line("*=",l,vars_n, funcs);
         case '/':
-            return op_line("/=",l,vars_n);
+            return op_line("/=",l,vars_n, funcs);
         default:
-            return " ";
+            return l;
     }
 }
 
-std::string Variable::op_line(std::string op, std::string l, std::map<std::string, std::string> vars_n){
+std::string Variable::op_line(std::string op, std::string l, std::map<std::string, std::string> vars_n, std::map<std::string, Function> funcs){
     std::string tempVal = l.substr(name.size() + op.size(), l.size());
-    std::string v = val.convert(line, vars_n)[0];
+    std::string v = val.convert(tempVal, vars_n, funcs)[0];
     std::string fin = name + " " + op + " " + v + ";";
     return fin;
 }

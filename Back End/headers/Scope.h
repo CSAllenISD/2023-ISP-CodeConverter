@@ -11,6 +11,7 @@ class Scope {
         void changeScope(std::string func);
         void addScope(std::string name);
         void removeScope();
+        void removeFunc();
         std::string scopeTabbing();
     private:
         int scope;

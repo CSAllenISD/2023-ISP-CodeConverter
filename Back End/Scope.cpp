@@ -29,16 +29,18 @@ void Scope::addScope(std::string name){
 void Scope::removeScope(){
     currentScope.pop_back();
 }
-void Scope::changeScope(std::string func, int level;){
-    prevScope.push_back(currFunc);
-    prevScopeLevels.push_back(currFuncLevel);
+void Scope::changeScope(std::string func){
+    prevScope.push_back(func);
+    prevScopeLevels.push_back(scope);
     currFunc = func;
-    currFuncLevel = level;
+    currFuncLevel = scope;
 }
 void Scope::removeFunc(){
+    // /std::cout << scope << std::endl << prevScopeLevels[prevScopeLevels.size()-1] << ;
     if (scope < prevScopeLevels[prevScopeLevels.size()-1]){
-        prevScope.erase(prevScope[prevScope.size()-1]);
-        prevScopeLevels.erase(prevScopeLevels[prevScopeLevels.size()-1]);
+        //prevScope.erase(prevScope[prevScope.size()-1]);
+        prevScope.pop_back();
+        prevScopeLevels.pop_back();
         currFunc = prevScope[prevScope.size()-1];
         currFuncLevel = prevScopeLevels[prevScopeLevels.size()-1];
     }

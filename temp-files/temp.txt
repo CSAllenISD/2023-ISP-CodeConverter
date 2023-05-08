@@ -1,3 +1,19 @@
-if x > y {
-    print("hi")
+func hollers(from: String, to: String, repeated: Int) -> Int{
+    var person1 = "\(from) hollers"
+    let person2 = " \(to)"
+    for repeated in 1...repeated{
+        person1 += person2
+        for _ in 1 ... repeated{
+            person1 += "!"
+        }; person1 += ","
+    };
+    person1.removeLast(1)
+    print(person1)
+    return(person1.count)
 }
+var too_cool_school = ""
+func hollersAndPrintCount(from:String, to:String, repeated:Int) {
+    print(hollers(from:from, to:to, repeated:repeated))
+}
+let _ = hollers(from:"Bob", to:"Alice", repeated:3)
+hollersAndPrintCount(from:"Bob", to:"Alice", repeated:3)

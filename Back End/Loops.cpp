@@ -57,3 +57,18 @@ std::string Loops::whileConversion(std::string line) {
 std::string Loops::rptwhileConversion(std::string line) {
     return "do {";
 }
+std::string Loops::elseConversion(std::string line) {
+    if (line.find("if") == std::string::npos){
+        return "else {";
+    }
+    else {
+        int startLength = 6;
+        int endLength = line.length() - startLength;
+        std::string ifContent = line.substr(startLength, endLength - 1);
+        //ifContent = con.make(ifContent);
+        std::ostringstream ifFormat;
+        ifFormat << "else if" << " " << "(" << ifContent << ")" << " " << "{";
+        // Causes the current index to contain the new, converted C++ code.
+        return ifFormat.str();
+    }
+}

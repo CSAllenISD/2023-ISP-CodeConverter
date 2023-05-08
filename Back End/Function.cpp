@@ -4,6 +4,9 @@
 #include <map>
 #include <sstream>
 
+#include "headers/Value.h"
+
+#include "headers/Variable.h"
 #include "headers/Function.h"
 
 Function::Function(){
@@ -18,6 +21,9 @@ void Function::printParams() {
 }
 std::string Function::retName(){
     return name;
+}
+std::string Function::retType(){
+    return type;
 }
 void Function::defineTypes(){
     types["Boolean"] = "bool";
@@ -60,6 +66,7 @@ std::string Function::define(std::string line){
         tempS = tempS.substr(0, tempS.length() - 2);
     }
     tempS += (") {");
+    type = returnType;
     return tempS;
 }
 std::string Function::call(std::string line){
@@ -83,6 +90,6 @@ std::string Function::call(std::string line){
     if (args.size() != 0) {
         ret = ret.substr(0, ret.length() - 2); 
     }
-    ret += (");");
+    ret += (")");
     return ret;
 }

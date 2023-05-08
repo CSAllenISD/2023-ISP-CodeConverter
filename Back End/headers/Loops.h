@@ -11,6 +11,7 @@ class Loops
         std::string forConversion(std::string line);
         std::string whileConversion(std::string line);
         std::string rptwhileConversion(std::string line);
+        std::string elseConversion(std::string line);
     private:
         Conditional con;
 };
